@@ -43,7 +43,12 @@
 # ------------------------------------------------------------------------
 #
 
-declare -r makensis=$(type -P makensis)
+makensis=$(which makensis)
+
+if [ ! -x $makensis ]; then
+    echo please install makensis
+    exit 1
+fi
 
 ## Build x86 installer
 echo Please wait. Compilling x86 installer...
